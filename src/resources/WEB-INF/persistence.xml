@@ -4,11 +4,11 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
              http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
              version="2.1">
-<persistence-unit name="myApp">
+<persistence-unit name="structureApp">
 <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 <properties>
   <property name="connection.driver_class"  value="org.h2.Driver"/>
-  <property name="hibernate.connection.url" value="jdbc:h2:./db"/>
+  <property name="hibernate.connection.url" value="jdbc:h2:./structure-db"/>
   <property name="hibernate.dialect"        value="org.hibernate.dialect.H2Dialect"/>
   <property name="hibernate.hbm2ddl.auto"   value="create-drop"/>
   <property name="hibernate.show_sql"       value="true"/>

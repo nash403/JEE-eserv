@@ -2,9 +2,29 @@ package fr.eservices.structure.dao;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+
 import fr.eservices.structure.model.Structure;
 
 public class StructureDaoImpl implements StructureDao {
+	
+	EntityManager em;
+	EntityManagerFactory emf;
+	EntityTransaction tx;
+	
+	public void setManager(String name) {
+		emf = Persistence.createEntityManagerFactory(name);
+		em = emf.createEntityManager();
+		tx = em.getTransaction();
+	}
+	
+	public void close() {
+		em.close();
+		emf.close();
+	}
 
 	@Override
 	public List<Structure> listAll() {
