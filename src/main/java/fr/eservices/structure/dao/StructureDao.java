@@ -10,7 +10,8 @@ public interface StructureDao {
 	public List<Structure> listByRegion(String region_name);
 	public Structure findById(long id);
 	
-	public void create(Structure struct);
+
 	public Structure update(Structure struct);
+	public Structure create(Structure struct);
 	public void delete(long id);
 }
