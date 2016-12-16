@@ -4,7 +4,7 @@ import java.util.List;
 
 import fr.eservices.structure.model.Structure;
 
-public interface StructureDAO {
+public interface StructureDao {
 	
 	public List<Structure> listAll();
 	public List<Structure> listByRegion(String region_name);
