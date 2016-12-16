@@ -33,13 +33,10 @@ public class StructureDaoImpl implements StructureDao {
 
 	@Override
 	public List<Structure> listByRegion(String region_name) {
-		List<Structure> res = new ArrayList<>();
-
-		res = em.createQuery("SELECT s FROM Structure s where s.region = :region_name")
-		.setParameter("region_name", region_name)
-		getResultList();
-
-		return res;
+		return em
+			.createQuery("SELECT s FROM Structure s where s.region = :region_name", Structure.class)
+			.setParameter("region_name", region_name)
+			.getResultList();
 	}
 
 	@Override
@@ -54,7 +51,7 @@ public class StructureDaoImpl implements StructureDao {
 	}
 
 	@Override
-	public void update(Structure struct) {
+	public Structure update(Structure struct) {
 		int updatedStruct = em.createQuery("UPDATE Structure SET name = :name, street = :street, region = :region, city = :city, country = :country, status = :status WHERE id = :id")
 		.setParameter("name", struct.getName())
 		.setParameter("street", struct.getStreet())

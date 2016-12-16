@@ -11,6 +11,6 @@ public interface StructureDao {
 	public Structure findById(long id);
 	
 	public void create(Structure struct);
-	public void update(Structure struct);
+	public Structure update(Structure struct);
 	public void delete(long id);
 }
