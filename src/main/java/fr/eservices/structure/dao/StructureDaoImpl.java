@@ -28,8 +28,7 @@ public class StructureDaoImpl implements StructureDao {
 
 	@Override
 	public List<Structure> listAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return em.createQuery("select s from Structure s",Structure.class).getResultList();
 	}
 
 	@Override
