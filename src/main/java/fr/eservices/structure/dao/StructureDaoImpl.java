@@ -28,7 +28,7 @@ public class StructureDaoImpl implements StructureDao {
 
 	@Override
 	public List<Structure> listAll() {
-		return em.createQuery("select s from Structure s",Structure.class).getResultList();
+		return em.createQuery("select s from Structure s ",Structure.class).getResultList();
 	}
 
 	@Override
@@ -45,9 +45,13 @@ public class StructureDaoImpl implements StructureDao {
 	}
 
 	@Override
-	public void create(Structure struct) {
-		// TODO Auto-generated method stub
-
+	public Structure create(Structure struct) {
+		if(!em.contains(struct)){
+			em.persist(struct);
+			return struct;		
+		}else{
+			return null;
+		}
 	}
 
 	@Override
