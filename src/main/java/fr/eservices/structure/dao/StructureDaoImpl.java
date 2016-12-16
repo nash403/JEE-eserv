@@ -39,8 +39,7 @@ public class StructureDaoImpl implements StructureDao {
 
 	@Override
 	public Structure findById(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return em.find(Structure.class, id);
 	}
 
 	@Override
