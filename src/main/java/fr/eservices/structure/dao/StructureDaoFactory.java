@@ -1,5 +1,5 @@
 package fr.eservices.structure.dao;
 
-public class StructureDAOFactory {
+public class StructureDaoFactory {
 	
 }

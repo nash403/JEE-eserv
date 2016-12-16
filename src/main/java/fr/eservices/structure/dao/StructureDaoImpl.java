@@ -4,7 +4,7 @@ import java.util.List;
 
 import fr.eservices.structure.model.Structure;
 
-public class StructureDAOImpl implements StructureDAO {
+public class StructureDaoImpl implements StructureDao {
 
 	@Override
 	public List<Structure> listAll() {
