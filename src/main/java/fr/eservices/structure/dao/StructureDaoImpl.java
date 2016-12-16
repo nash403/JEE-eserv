@@ -10,17 +10,17 @@ import javax.persistence.Persistence;
 import fr.eservices.structure.model.Structure;
 
 public class StructureDaoImpl implements StructureDao {
-	
+
 	EntityManager em;
 	EntityManagerFactory emf;
 	EntityTransaction tx;
-	
+
 	public void setManager(String name) {
 		emf = Persistence.createEntityManagerFactory(name);
 		em = emf.createEntityManager();
 		tx = em.getTransaction();
 	}
-	
+
 	public void close() {
 		em.close();
 		emf.close();
@@ -33,8 +33,13 @@ public class StructureDaoImpl implements StructureDao {
 
 	@Override
 	public List<Structure> listByRegion(String region_name) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Structure> res = new ArrayList<>();
+
+		res = em.createQuery("SELECT s FROM Structure s where s.region = :region_name")
+		.setParameter("region_name", region_name)
+		getResultList();
+
+		return res;
 	}
 
 	@Override
@@ -45,19 +50,27 @@ public class StructureDaoImpl implements StructureDao {
 	@Override
 	public void create(Structure struct) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void update(Structure struct) {
-		// TODO Auto-generated method stub
-		
+		int updatedStruct = em.createQuery("UPDATE Structure SET name = :name, street = :street, region = :region, city = :city, country = :country, status = :status WHERE id = :id")
+		.setParameter("name", struct.getName())
+		.setParameter("street", struct.getStreet())
+		.setParameter("region", struct.getRegion())
+		.setParameter("city", struct.getCity())
+		.setParameter("status", struct.getStatus())
+		.setParameter("id", struct.getId())
+		.executeUpdate();
+
+		return updatedStruct == 1 ? struct : null;
 	}
 
 	@Override
 	public void delete(long id) {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
+
 }
