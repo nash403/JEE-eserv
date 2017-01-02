@@ -7,8 +7,12 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+import org.springframework.stereotype.Component;
+
 import fr.eservices.structure.model.Structure;
 
+
+@Component
 public class StructureDaoImpl implements StructureDao {
 
 	EntityManager em;
