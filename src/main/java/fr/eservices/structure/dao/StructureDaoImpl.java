@@ -1,4 +1,4 @@
-package fr.eservices.structure.dao;
+package fr.eservices.structure.dao;	
 
 import java.util.List;
 
@@ -70,8 +70,9 @@ public class StructureDaoImpl implements StructureDao {
 
 	@Override
 	public void delete(long id) {
-		// TODO Auto-generated method stub
-
+		Structure structureToDelete = this.findById(id);
+		if(structureToDelete != null){
+			em.remove(structureToDelete);
+		}
 	}
-
 }
