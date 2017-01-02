@@ -9,7 +9,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan({"fr.eservices.structure.app","fr.eservices.structure.dao","fr.eservices.structure.model","fr.eservices.structure.srv"})
+@ComponentScan({"fr.eservices.structure"})
 public class AppConfig {
 
 	@Bean
