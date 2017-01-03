@@ -20,9 +20,10 @@
    		<h2 class="form-signin-heading">Create Structure</h2>
    		<label for="inputStructureName" class="form-control">Structure Name</label>
    		<input type="text" id="inputStructureName" name="email" class="form-control" placeholder="Structure Name" required autofocus/>
-   		<select name="status" class="form-control">
-   			<option value="Entreprise">
-   			<option value="Association">
+   		<label for="inputStatus" class="form-control">Status</label>
+   		<select name="status" id="inputStatus" class="form-control">
+   			<option value="ENTREPRISE">Enterprise</option>
+   			<option value="ASSOCIATION">Association</option>
    		</select>
    		<div class="form-group">
    			<h3>Address</h3>   		
