@@ -15,7 +15,31 @@
     <![endif]-->
   </head>
   <body>
-   
+   <div class="container">
+   	<form class="form-signin" role="form" method="post" action="structure/create">
+   		<h2 class="form-signin-heading">Create Structure</h2>
+   		<label for="inputStructureName" class="form-control">Structure Name</label>
+   		<input type="text" id="inputStructureName" name="email" class="form-control" placeholder="Structure Name" required autofocus/>
+   		<select name="status" class="form-control">
+   			<option value="Entreprise">
+   			<option value="Association">
+   		</select>
+   		<div class="form-group">
+   			<h3>Address</h3>   		
+   			<label for="inputStreet" class="form-control">Street</label>
+   			<input type="text" id="inputStreet" name="street" class="form-control"/>
+   			<label for="inputZipCode" class="form-control">Zip Code</label>
+   			<input type="text" id="inputZipCode" name="zipcode" class="form-control"/>
+   			<label for="inputRegion" class="form-control">Region</label>
+   			<input type="text" id="inputRegion" name="region" class="form-control"/>
+   			<label for="inputCity" class="form-control">City</label>
+   			<input type="text" id="inputCity" name="city" class="form-control"/>
+   			<label for="inputCountry" class="form-control">Country</label>
+   			<input type="text" id="inputStreet" name="country" class="form-control"/>	
+   		</div>
+   		
+   	</form>
+   </div>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
