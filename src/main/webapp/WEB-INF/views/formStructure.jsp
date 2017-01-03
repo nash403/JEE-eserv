@@ -36,8 +36,7 @@
    			<input type="text" id="inputCity" name="city" class="form-control"/>
    			<label for="inputCountry" class="form-control">Country</label>
    			<input type="text" id="inputStreet" name="country" class="form-control"/>	
-   		</div>
-   		
+   		</div>	
    	</form>
    </div>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
