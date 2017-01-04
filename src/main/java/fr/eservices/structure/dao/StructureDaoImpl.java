@@ -53,6 +53,7 @@ public class StructureDaoImpl implements StructureDao {
 	public Structure create(Structure struct) {
 		if(!em.contains(struct)){
 			em.persist(struct);
+			em.flush();
 			return struct;		
 		}else{
 			return null;
