@@ -20,6 +20,13 @@
   </head>
   <body>
    <div class="container">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/structure-srv/app/struct">Accueil</a>
+        </div>
+      </div>
+    </nav>
    
    	<form:form method="POST" modelAttribute="structure" action="create">
    	<div class="form-group row">
@@ -56,6 +63,7 @@
    	<input type="submit" class="btn btn-primary" value="Create"/>
    	</div>
    	</form:form>
+
    </div>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
