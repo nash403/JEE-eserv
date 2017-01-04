@@ -11,13 +11,13 @@ import fr.eservices.structure.model.Structure;
 import fr.eservices.structure.srv.StructureServiceImpl;
 
 @Controller
-@RequestMapping("/struct")
+@RequestMapping(value = "/struct")
 public class StructureCtrl {
 
 	@Autowired
 	StructureServiceImpl srv;
 	
-	@RequestMapping("/all")
+	@RequestMapping(value = "/all")
 	public String list(Model model){
 		model.addAttribute("structures", srv.findAll());
 		return "struct/all";
