@@ -1,16 +1,19 @@
 package fr.eservices.structure.ctrl;
 
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
-import fr.eservices.structure.dto.StructureEditDto;
 import fr.eservices.structure.model.Structure;
 import fr.eservices.structure.srv.StructureServiceImpl;
 
@@ -66,17 +69,19 @@ public class StructureCtrl {
 		return "struct/all";
 	}
 	
-	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public String create(Model model, @RequestBody() StructureEditDto structureRequest){
-		Structure struct = new Structure();
-		struct.setName(structureRequest.getName());
-		struct.setStreet(structureRequest.getStreet());
-		struct.setZipcode(structureRequest.getZipcode());
-		struct.setRegion(structureRequest.getRegion());
-		struct.setCity(structureRequest.getCity());
-		struct.setCountry(structureRequest.getCountry());
-		struct.setStatus(Structure.Status.values() [structureRequest.getStatus()]);
-		srv.create(struct);
-		return "struct/all";
+	@RequestMapping(value="/create",method=RequestMethod.GET)
+	public ModelAndView showForm(){
+		return  new ModelAndView("formStructure","structure",new Structure());
+	}
+	
+	@RequestMapping(value="/create",method=RequestMethod.POST)
+	public void create(Model model, @ModelAttribute Structure structure,HttpServletResponse resp){
+		srv.create(structure);
+		model.addAttribute("structure",structure);
+		try {
+			resp.sendRedirect("all");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

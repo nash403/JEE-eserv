@@ -4,12 +4,13 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Structure {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
 	private String name;
@@ -104,9 +105,14 @@ public class Structure {
 
 	@Override
 	public String toString(){
-		return "Name : " + name + " Street : " + street + " Zip Code : "+ zipcode + " Region : " + region + " Country : " + country + " Status : "+ status;
+		return "ID : " + id +" Name : " + name + " Street : " + street + " Zip Code : "+ zipcode + " Region : " + region + " Country : " + country + " Status : "+ status;
 	}
+<<<<<<< HEAD
 	public static enum Status {
+=======
+	
+	public enum Status {
+>>>>>>> feat(formStructure): utilisation de jstl pour le formulaire de la creation de structure + creation de structure fonctionelle
 		ENTREPRISE, ASSOCIATION
 	}
 }
