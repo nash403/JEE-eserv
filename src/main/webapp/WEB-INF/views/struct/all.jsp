@@ -32,14 +32,15 @@
 	  <a href="/structure-srv/app/struct/all" class="btn btn-default">All</a>
 	</form>
 	<div class="container">
-		<table class="table table-striped table-hover">
-			<tr><th>Nom</th><th>Région</th><th>Status</th></tr>
+		<table class="table table-striped table-hover table-bordered">
+			<tr><th>ID</th><th>Nom</th><th>Région</th><th>Status</th><th>Action</th></tr>
 			<c:forEach items="${structs}" var="struct">
 				<tr>
+					<td><c:out value="${struct.id}"/></td>
 					<td><c:out value="${struct.name}"/></td>
 					<td><c:out value="${struct.region}"/></td>
 					<td><c:out value="${struct.status}"/></td>
-					<td><a href="/structure-srv/app/struct/edit/${struct.id}">éditer</a> </td>
+					<td style="text-align: center;"><a class="btn btn-primary" href="/structure-srv/app/struct/edit/${struct.id}">éditer</a> </td>
 				</tr>
 			</c:forEach>
 			<c:if test="${empty structs}">
