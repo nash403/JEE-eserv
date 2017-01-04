@@ -20,7 +20,7 @@
    <h1>Gestion des structures</h1>
    
 	<a class="btn btn-default" href="/structure-srv/app/struct/all">Voir toutes les structure</a>
-	<a class="btn btn-default" href="/structure-srv/app/struct/create-edit">Ajouter/modifier une structure</a>
+	<a class="btn btn-default" href="/structure-srv/app/struct/create-edit">Ajouter une structure</a>
 	
    </div>
   </body>

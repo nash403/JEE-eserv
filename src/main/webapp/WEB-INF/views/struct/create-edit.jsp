@@ -27,13 +27,14 @@
      </div>
    </nav>
    <div class="container">
+
    
    	<form:form method="POST" modelAttribute="structure" action="create">
    	<div class="form-group row">
    	<h2>Structure</h2>
    		<div class="form-group">   		
    			<form:label path="name">Structure name</form:label>
-   			<form:input class="form-control" path="name" type="text" required="required"/>
+   			<form:input class="form-control" path="name" type="text" value="${structToEdit.name != null ? structToEdit.name : ''}" required="required"/>
    		</div>
    		<div class="form-group">   		
    			<form:label path="street">Street</form:label>
@@ -63,7 +64,6 @@
    	<input type="submit" class="btn btn-primary" value="Create"/>
    	</div>
    	</form:form>
-
    </div>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
