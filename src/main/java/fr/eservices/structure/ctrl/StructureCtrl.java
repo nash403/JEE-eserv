@@ -18,6 +18,20 @@ public class StructureCtrl {
 	@Autowired
 	StructureServiceImpl srv;
 	
+	
+	@RequestMapping(value = "/welcome")
+	public String showIndex(Model model){
+		
+		return "index";
+	}
+	
+	@RequestMapping(value = "/create-edit")
+	public String createStructure(Model model){
+		
+		return "struct/create-edit";
+	}
+	
+	
 	@RequestMapping(value = "/all")
 	public String list(Model model){
 		model.addAttribute("structures", srv.findAll());
