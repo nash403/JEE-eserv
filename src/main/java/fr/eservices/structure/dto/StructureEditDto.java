@@ -1,25 +1,14 @@
-package fr.eservices.structure.model;
+package fr.eservices.structure.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
-@Entity
-public class Structure {
-	@Id
-	@GeneratedValue
+public class StructureEditDto {
 	private Long id;
-	
 	private String name;
 	private String street;
 	private String zipcode;
 	private String region;
 	private String city;
 	private String country;
-	@Enumerated(EnumType.STRING)
-	private Status status;
+	private int status;
 
 
 	public Long getId() {
@@ -92,21 +81,12 @@ public class Structure {
 	}
 
 
-	public Status getStatus() {
+	public int getStatus() {
 		return status;
 	}
 
 
-	public void setStatus(Status status) {
+	public void setStatus(int status) {
 		this.status = status;
-	}
-
-
-	@Override
-	public String toString(){
-		return "Name : " + name + " Street : " + street + " Zip Code : "+ zipcode + " Region : " + region + " Country : " + country + " Status : "+ status;
-	}
-	public static enum Status {
-		ENTREPRISE, ASSOCIATION
 	}
 }
