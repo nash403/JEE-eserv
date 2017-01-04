@@ -1,10 +1,13 @@
 package fr.eservices.structure.ctrl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import fr.eservices.structure.model.Structure;
 import fr.eservices.structure.srv.StructureServiceImpl;
 
 @Controller
@@ -16,7 +19,11 @@ public class StructureCtrl {
 	
 	@RequestMapping("/all")
 	public String list(Model model){
-		model.addAttribute("resellers", srv.findAll());
+		List<Structure> ss = srv.findAll();
+		model.addAttribute("structs", ss);
+		for (Structure s : ss) {
+			System.out.println("Une structure => "+s);
+		}
 		return "struct/all";
 	}
 }
