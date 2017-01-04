@@ -30,13 +30,6 @@ public class StructureCtrl {
 		
 		return "index";
 	}
-	
-	@RequestMapping(value = "/create-edit")
-	public String structure(Model model){
-		
-		return "struct/create-edit";
-	}
-	
 
 	@RequestMapping(value = "/edit")
 	public String editStructure(Model model){
@@ -67,11 +60,11 @@ public class StructureCtrl {
 	
 	@RequestMapping(value="/create",method=RequestMethod.GET)
 	public ModelAndView showForm(){
-		return  new ModelAndView("formStructure","structure",new Structure());
+		return  new ModelAndView("struct/create-edit","structure",new Structure());
 	}
 	
 	@RequestMapping(value="/create",method=RequestMethod.POST)
-	public void create(Model model, @ModelAttribute Structure structure,HttpServletResponse resp){
+	public void createStructure(Model model, @ModelAttribute Structure structure,HttpServletResponse resp){
 		srv.create(structure);
 		model.addAttribute("structure",structure);
 		try {
