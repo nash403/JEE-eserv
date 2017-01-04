@@ -16,7 +16,7 @@ public class StructureCtrl {
 	
 	@RequestMapping("/all")
 	public String list(Model model){
-		model.addAttribute("resellers", srv.findAll());
+		model.addAttribute("structures", srv.findAll());
 		return "struct/all";
 	}
 }
