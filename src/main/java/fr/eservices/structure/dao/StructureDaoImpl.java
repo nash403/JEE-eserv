@@ -39,8 +39,8 @@ public class StructureDaoImpl implements StructureDao {
 	@Override
 	public List<Structure> listByRegion(String region_name) {
 		return em
-			.createQuery("SELECT s FROM Structure s where s.region = :region_name", Structure.class)
-			.setParameter("region_name", region_name)
+			.createQuery("SELECT s FROM Structure s where UPPER(s.region) like :region_name", Structure.class)
+			.setParameter("region_name", "%"+region_name.toUpperCase()+"%")
 			.getResultList();
 	}
 

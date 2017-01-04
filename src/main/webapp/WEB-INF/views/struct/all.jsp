@@ -11,10 +11,11 @@
   <style>body { margin-top: 70px; }</style>
   <body>
    <div class="container">
-   <h1>Liste des structures</h1>
-   	<form class="form-inline" action="structure-srv/app/struct/all">
-	  <input type="text" class="form-control" placeholder="Filtrer par région" required>
+   	<h1>Liste des structures</h1>
+   	<form class="form-inline" action="/structure-srv/app/struct/filter" method="post">
+	  <input type="text" name="regionflt" class="form-control" placeholder="Filtrer par région" required>
 	  <button type="submit" class="btn btn-default">Rechercher</button>
+	  <a href="/structure-srv/app/struct/all" class="btn btn-default">All</a>
 	</form>
 	<div class="container">
 		<table class="table table-striped table-hover">
@@ -26,6 +27,9 @@
 					<td><c:out value="${struct.status}"/></td>
 				</tr>
 			</c:forEach>
+			<c:if test="${empty structs}">
+				<c:out value="<div>Aucune entrée trouvée !</div>"/>
+			</c:if>
 		</table>
 	</div>
    </div>

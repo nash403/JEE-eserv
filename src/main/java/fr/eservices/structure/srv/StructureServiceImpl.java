@@ -23,5 +23,9 @@ public class StructureServiceImpl implements StructureService {
 	public void create(Structure struct) {
 		dao.create(struct);
 	}
-	
+
+	@Override
+	public List<Structure> filterByRegion(String regionName) {
+		return dao.listByRegion(regionName);
+	}
 }
