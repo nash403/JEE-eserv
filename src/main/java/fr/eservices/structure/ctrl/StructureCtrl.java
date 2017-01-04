@@ -22,7 +22,7 @@ public class StructureCtrl {
 	StructureServiceImpl srv;
 	
 	
-	@RequestMapping(value = "/welcome")
+	@RequestMapping(value = "")
 	public String showIndex(Model model){
 		
 		return "index";
