@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Component;
 
@@ -15,7 +16,10 @@ import fr.eservices.structure.model.Structure;
 @Component
 public class StructureDaoImpl implements StructureDao {
 
+	@PersistenceContext
 	EntityManager em;
+	
+	/*
 	EntityManagerFactory emf;
 	EntityTransaction tx;
 
@@ -28,8 +32,8 @@ public class StructureDaoImpl implements StructureDao {
 	public void close() {
 		em.close();
 		emf.close();
-	}
-
+	}*/
+	
 	@Override
 	public List<Structure> listAll() {
 		return em.createQuery("select s from Structure s ",Structure.class).getResultList();
@@ -79,4 +83,9 @@ public class StructureDaoImpl implements StructureDao {
 			em.remove(structureToDelete);
 		}
 	}
+
+	public EntityManager getEm() {
+		return em;
+	}
+	
 }
