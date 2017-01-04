@@ -102,6 +102,10 @@ public class Structure {
 	}
 
 
+	@Override
+	public String toString(){
+		return "Name : " + name + " Street : " + street + " Zip Code : "+ zipcode + " Region : " + region + " Country : " + country + " Status : "+ status;
+	}
 	static enum Status {
 		ENTREPRISE, ASSOCIATION
 	}
