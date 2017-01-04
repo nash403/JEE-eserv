@@ -30,6 +30,12 @@ public class StructureCtrl {
 
 		return "index";
 	}
+	
+	@RequestMapping(value = "/create-edit")
+	public String showStructure(Model model) {
+
+		return "struct/create-edit";
+	}
 
 	@RequestMapping(value = "/all")
 	public String list(Model model){
@@ -67,8 +73,8 @@ public class StructureCtrl {
 		}
 	}
 
-	@RequestMapping(value = "/edit/{idStruct}")
-	public String editStructure(Model model, @PathVariable final Long idStruct) {
+	@RequestMapping(value = "/edit", method = RequestMethod.GET)
+	public String editStructure(Model model, @RequestParam("idStruct") final Long idStruct) {
 		Structure structToEdit = srv.findStructById(idStruct);
 		model.addAttribute("structToEdit", structToEdit);
 
