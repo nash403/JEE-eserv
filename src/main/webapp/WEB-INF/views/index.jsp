@@ -8,8 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Liste des Structures</title>
   </head>
-  <style>body { margin-top: 70px; }</style>
   <body>
+  	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="/structure-srv/app/struct">Accueil</a>
+	    </div>
+	  </div>
+	</nav>
    <div class="container">
    <h1>Gestion des structures</h1>
    
