@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import fr.eservices.structure.model.Structure;
 
@@ -15,21 +16,6 @@ public class StructureDaoImpl implements StructureDao {
 
 	@PersistenceContext
 	EntityManager em;
-	
-	/*
-	EntityManagerFactory emf;
-	EntityTransaction tx;
-
-	public void setManager(String name) {
-		emf = Persistence.createEntityManagerFactory(name);
-		em = emf.createEntityManager();
-		tx = em.getTransaction();
-	}
-
-	public void close() {
-		em.close();
-		emf.close();
-	}*/
 	
 	@Override
 	public List<Structure> listAll() {
@@ -50,6 +36,7 @@ public class StructureDaoImpl implements StructureDao {
 	}
 
 	@Override
+	@Transactional
 	public Structure create(Structure struct) {
 		if(!em.contains(struct)){
 			em.persist(struct);

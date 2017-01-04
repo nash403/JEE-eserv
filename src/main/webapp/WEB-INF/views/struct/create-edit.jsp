@@ -1,3 +1,7 @@
+<%@page import="fr.eservices.structure.model.Structure"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,29 +20,42 @@
   </head>
   <body>
    <div class="container">
-   	<form class="form-signin" role="form" method="post" action="structure/create">
-   		<h2 class="form-signin-heading">Create Structure</h2>
-   		<label for="inputStructureName" class="form-control">Structure Name</label>
-   		<input type="text" id="inputStructureName" name="email" class="form-control" placeholder="Structure Name" required autofocus/>
-   		<label for="inputStatus" class="form-control">Status</label>
-   		<select name="status" id="inputStatus" class="form-control">
-   			<option value="ENTREPRISE">Enterprise</option>
-   			<option value="ASSOCIATION">Association</option>
-   		</select>
-   		<div class="form-group">
-   			<h3>Address</h3>   		
-   			<label for="inputStreet" class="form-control">Street</label>
-   			<input type="text" id="inputStreet" name="street" class="form-control"/>
-   			<label for="inputZipCode" class="form-control">Zip Code</label>
-   			<input type="text" id="inputZipCode" name="zipcode" class="form-control"/>
-   			<label for="inputRegion" class="form-control">Region</label>
-   			<input type="text" id="inputRegion" name="region" class="form-control"/>
-   			<label for="inputCity" class="form-control">City</label>
-   			<input type="text" id="inputCity" name="city" class="form-control"/>
-   			<label for="inputCountry" class="form-control">Country</label>
-   			<input type="text" id="inputStreet" name="country" class="form-control"/>	
-   		</div>	
-   	</form>
+   
+   	<form:form method="POST" modelAttribute="structure" action="create">
+   	<div class="form-group row">
+   	<h2>Structure</h2>
+   		<div class="form-group">   		
+   			<form:label path="name">Structure name</form:label>
+   			<form:input class="form-control" path="name"/>
+   		</div>
+   		<div class="form-group">   		
+   			<form:label path="street">Street</form:label>
+   			<form:input class="form-control" path="street"/>
+   		</div>
+   		<div class="form-group">   		
+   			<form:label path="zipcode">Zip Code</form:label>
+   			<form:input class="form-control" path="zipcode"/>
+   		</div>
+   		<div class="form-group">   		
+   			<form:label path="region">Region</form:label>
+   			<form:input class="form-control" path="region"/>
+   		</div>
+   		<div class="form-group">   		
+   			<form:label path="country">Country</form:label>
+   			<form:input class="form-control" path="country"/>
+   		</div>
+   		<div class="form-group">   		
+   			<form:label path="status">Status</form:label>
+   			<c:set var="enumValues" value="<%=Structure.Status.values()%>"/>
+   			<form:select path="status" class="form-control" name="enumValue">
+	   			<c:forEach items="${enumValues}" var="enumValue">
+	   				<form:option value="${enumValue}">${enumValue}</form:option>
+	   			</c:forEach>
+   			</form:select>
+   		</div>
+   	<input type="submit" class="btn btn-primary" value="Create"/>
+   	</div>
+   	</form:form>
    </div>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
