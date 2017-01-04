@@ -19,37 +19,37 @@
     <![endif]-->
   </head>
   <body>
+   <nav class="navbar navbar-default">
+     <div class="container-fluid">
+       <div class="navbar-header">
+         <a class="navbar-brand" href="/structure-srv/app/struct">Accueil</a>
+       </div>
+     </div>
+   </nav>
    <div class="container">
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/structure-srv/app/struct">Accueil</a>
-        </div>
-      </div>
-    </nav>
    
    	<form:form method="POST" modelAttribute="structure" action="create">
    	<div class="form-group row">
    	<h2>Structure</h2>
    		<div class="form-group">   		
    			<form:label path="name">Structure name</form:label>
-   			<form:input class="form-control" path="name"/>
+   			<form:input class="form-control" path="name" type="text" required="required"/>
    		</div>
    		<div class="form-group">   		
    			<form:label path="street">Street</form:label>
-   			<form:input class="form-control" path="street"/>
+   			<form:input class="form-control" path="street" type="text"/>
    		</div>
    		<div class="form-group">   		
    			<form:label path="zipcode">Zip Code</form:label>
-   			<form:input class="form-control" path="zipcode"/>
+   			<form:input class="form-control" pattern="[0-9]+" type="text" path="zipcode"/>
    		</div>
    		<div class="form-group">   		
    			<form:label path="region">Region</form:label>
-   			<form:input class="form-control" path="region"/>
+   			<form:input class="form-control" path="region" type="text" required="required"/>
    		</div>
    		<div class="form-group">   		
    			<form:label path="country">Country</form:label>
-   			<form:input class="form-control" path="country"/>
+   			<form:input class="form-control" path="country" type="text"/>
    		</div>
    		<div class="form-group">   		
    			<form:label path="status">Status</form:label>
