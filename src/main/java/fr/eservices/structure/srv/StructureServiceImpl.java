@@ -28,4 +28,11 @@ public class StructureServiceImpl implements StructureService {
 	public List<Structure> filterByRegion(String regionName) {
 		return dao.listByRegion(regionName);
 	}
+	
+	@Override
+	public Structure findStructById(Long id) {
+		return dao.findById(id);
+	}
+	
+	
 }

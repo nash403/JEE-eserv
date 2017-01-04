@@ -31,6 +31,7 @@
 					<td><c:out value="${struct.name}"/></td>
 					<td><c:out value="${struct.region}"/></td>
 					<td><c:out value="${struct.status}"/></td>
+					<td><a href="/structure-srv/app/struct/edit/${struct.id}">éditer</a> </td>
 				</tr>
 			</c:forEach>
 			<c:if test="${empty structs}">

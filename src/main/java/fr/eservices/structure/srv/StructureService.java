@@ -8,5 +8,6 @@ public interface StructureService {
 	
 	public List<Structure> findAll();
 	public void create(Structure struct);
-	public List<Structure> filterByRegion(String regionName);	
+	public List<Structure> filterByRegion(String regionName);
+	public Structure findStructById(Long id);	
 }
