@@ -34,6 +34,14 @@ public class StructureCtrl {
 		return "struct/create-edit";
 	}
 	
+
+	@RequestMapping(value = "/edit")
+	public String editStructure(Model model){
+
+		List<Structure> ss = srv.findAll();
+		model.addAttribute("structs", ss);
+		return "struct/create-edit";
+	}
 	
 	@RequestMapping(value = "/all")
 	public String list(Model model){
