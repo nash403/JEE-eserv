@@ -35,6 +35,12 @@
   </distributionManagement>
 
   <dependencies>
+  
+ 	<dependency>
+ 		<groupId>javax.servlet</groupId>
+        <artifactId>jstl</artifactId>
+        <version>1.2</version>
+ 	</dependency>
 
     <dependency>
         <groupId>org.springframework</groupId>
@@ -42,7 +48,7 @@
         <version>${spring.version}</version>
     </dependency>
 
-<dependency>
+	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-orm</artifactId>
 	    <version>${spring.version}</version>
