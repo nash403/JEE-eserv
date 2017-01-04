@@ -1,6 +1,8 @@
 package fr.eservices.structure.model;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
@@ -16,6 +18,7 @@ public class Structure {
 	private String region;
 	private String city;
 	private String country;
+	@Enumerated(EnumType.STRING)
 	private Status status;
 
 

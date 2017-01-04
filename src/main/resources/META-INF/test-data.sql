@@ -1,0 +1,2 @@
+delete from structure;
+insert into structure(id, name, region, status) values (1, 'struct 1', 'Hauts-de-France', 'ASSOCIATION'), (2, 'struct 2', 'Bretagne', 'ENTREPRISE'), (3, 'struct 3', 'Centre-Est', 'ASSOCIATION');
