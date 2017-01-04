@@ -2,16 +2,17 @@ package fr.eservices.structure.srv;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import fr.eservices.structure.dao.StructureDao;
-import fr.eservices.structure.dao.StructureDaoFactory;
 import fr.eservices.structure.model.Structure;
 
 @Component
 public class StructureServiceImpl implements StructureService {
 	
-	StructureDao dao = StructureDaoFactory.createStructureDao();
+	@Autowired
+	StructureDao dao;
 		
 	@Override
 	public List<Structure> findAll() {

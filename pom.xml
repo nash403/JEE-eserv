@@ -30,7 +30,7 @@
   <distributionManagement>
     <repository>
       <id>repo-lille1</id>
-      <url>http://eservices.webpulser.com/</url>
+      <url>http://eservices.webpulser.com/maven</url>
     </repository>
   </distributionManagement>
 
@@ -42,6 +42,12 @@
         <version>${spring.version}</version>
     </dependency>
 
+<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-orm</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
+	
     <!-- <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-databind</artifactId>
@@ -60,7 +66,7 @@
         <groupId>com.h2database</groupId>
         <artifactId>h2</artifactId>
         <version>1.4.193</version>
-        <!-- <scope>test</scope> -->
+        <scope>runtime</scope> 
     </dependency>
 
     <!-- org.hibernate :: hibernate-core :: 5.2.4.Final  -->
@@ -68,7 +74,7 @@
         <groupId>org.hibernate</groupId>
         <artifactId>hibernate-core</artifactId>
         <version>5.2.4.Final</version>
-        <!-- <scope>test</scope> -->
+        <scope>runtime</scope>
     </dependency>
 
     <dependency>
