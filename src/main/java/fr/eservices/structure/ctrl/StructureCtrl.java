@@ -29,7 +29,7 @@ public class StructureCtrl {
 	}
 	
 	@RequestMapping(value = "/create-edit")
-	public String createStructure(Model model){
+	public String structure(Model model){
 		
 		return "struct/create-edit";
 	}
@@ -55,7 +55,7 @@ public class StructureCtrl {
 	}
 	
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public String edit(Model model, @RequestBody() StructureEditDto structureRequest){
+	public String create(Model model, @RequestBody() StructureEditDto structureRequest){
 		Structure struct = new Structure();
 		struct.setName(structureRequest.getName());
 		struct.setStreet(structureRequest.getStreet());
