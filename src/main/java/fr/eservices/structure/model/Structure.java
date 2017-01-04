@@ -107,12 +107,8 @@ public class Structure {
 	public String toString(){
 		return "ID : " + id +" Name : " + name + " Street : " + street + " Zip Code : "+ zipcode + " Region : " + region + " Country : " + country + " Status : "+ status;
 	}
-<<<<<<< HEAD
-	public static enum Status {
-=======
-	
+
 	public enum Status {
->>>>>>> feat(formStructure): utilisation de jstl pour le formulaire de la creation de structure + creation de structure fonctionelle
 		ENTREPRISE, ASSOCIATION
 	}
 }
