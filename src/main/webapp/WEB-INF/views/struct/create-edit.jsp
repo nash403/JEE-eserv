@@ -31,29 +31,29 @@
    
    	<form:form method="POST" modelAttribute="structure" action="create">
    	<div class="form-group row">
-   	<h2>Structure</h2>
+   		<h2>Édition d'une Structure</h2>
    		<div class="form-group">   		
-   			<form:label path="name">Structure name</form:label>
+   			<form:label path="name">Nom de la structure</form:label>
    			<form:input class="form-control" path="name" type="text" value="${structToEdit.name != null ? structToEdit.name : ''}" required="required"/>
    		</div>
    		<div class="form-group">   		
-   			<form:label path="street">Street</form:label>
+   			<form:label path="street">Rue</form:label>
    			<form:input class="form-control" path="street" type="text"/>
    		</div>
    		<div class="form-group">   		
-   			<form:label path="zipcode">Zip Code</form:label>
+   			<form:label path="zipcode">Code Postal (chiffres uniquement)</form:label>
    			<form:input class="form-control" pattern="[0-9]+" type="text" path="zipcode"/>
    		</div>
    		<div class="form-group">   		
-   			<form:label path="region">Region</form:label>
+   			<form:label path="region">Région</form:label>
    			<form:input class="form-control" path="region" type="text" required="required"/>
    		</div>
    		<div class="form-group">   		
-   			<form:label path="country">Country</form:label>
+   			<form:label path="country">Pays</form:label>
    			<form:input class="form-control" path="country" type="text"/>
    		</div>
    		<div class="form-group">   		
-   			<form:label path="status">Status</form:label>
+   			<form:label path="status">Statut de la structure</form:label>
    			<c:set var="enumValues" value="<%=Structure.Status.values()%>"/>
    			<form:select path="status" class="form-control" name="enumValue">
 	   			<c:forEach items="${enumValues}" var="enumValue">
@@ -61,7 +61,7 @@
 	   			</c:forEach>
    			</form:select>
    		</div>
-   	<input type="submit" class="btn btn-primary" value="Create"/>
+   	<input type="submit" class="btn btn-primary pull-right" value="Ajouter / Modifier"/>
    	</div>
    	</form:form>
    </div>
