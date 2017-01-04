@@ -10,7 +10,7 @@
   <style>body { margin-top: 70px; }</style>
   <body>
    <div class="container">
-   <h1>Liste des structures</h1>
+   	<h1>Liste des structures</h1>
    	<form class="form-inline" action="structure-srv/app/struct/all">
 	  <input type="text" class="form-control" placeholder="Filtrer par région" required>
 	  <button type="submit" class="btn btn-default">Rechercher</button>
