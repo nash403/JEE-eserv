@@ -6,10 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import fr.eservices.structure.dao.StructureDao;
-import fr.eservices.structure.model.Structure;
-import fr.eservices.structure.model.UserMock;
 import fr.eservices.structure.model.RoleMock;
-import fr.eservices.structure.srv.UserMockService;
+import fr.eservices.structure.model.Structure;
 
 @Component
 public class StructureServiceImpl implements StructureService {
