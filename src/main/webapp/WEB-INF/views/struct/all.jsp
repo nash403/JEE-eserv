@@ -37,12 +37,16 @@
 	   	</div>
 	</form>
 	<table class="table table-striped table-hover table-bordered">
-		<tr><th>ID</th><th>Nom</th><th>Région</th><th>Status</th><th>Action</th></tr>
+		<tr><th>ID</th><th>Nom</th><th>Rue</th><th>Ville</th><th>CP</th><th>Région</th><th>Pays</th><th>Status</th><th>Action</th></tr>
 		<c:forEach items="${structs}" var="struct">
 			<tr>
 				<td><c:out value="${struct.id}"/></td>
 				<td><c:out value="${struct.name}"/></td>
+				<td><c:out value="${struct.street}"/></td>
+				<td><c:out value="${struct.city}"/></td>
+				<td><c:out value="${struct.zipcode}"/></td>
 				<td><c:out value="${struct.region}"/></td>
+				<td><c:out value="${struct.country}"/></td>
 				<td><c:out value="${struct.status}"/></td>
 				<td style="text-align: center;"><a class="btn btn-primary" href="create/${struct.id}">éditer</a> </td>
 			</tr>
