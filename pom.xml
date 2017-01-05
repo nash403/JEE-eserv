@@ -18,6 +18,28 @@
   </properties>
 
   <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.0.2</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration>
+              <classifier>api</classifier>
+              <includes>
+                <include>**/model/*</include>
+                <include>**/srv/*Service*.class</include>
+              </includes>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
     <extensions>
       <extension>
         <groupId>org.apache.maven.wagon</groupId>
@@ -30,12 +52,12 @@
   <distributionManagement>
     <repository>
       <id>repo-lille1</id>
-      <url>http://eservices.webpulser.com/maven</url>
+      <url>http://eservices.webpulser.com/</url>
     </repository>
   </distributionManagement>
 
   <dependencies>
-  
+
 
   	<dependency>
     	<groupId>javax.servlet</groupId>
@@ -54,7 +76,7 @@
 	    <artifactId>spring-orm</artifactId>
 	    <version>${spring.version}</version>
 	</dependency>
-	
+
     <!-- <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-databind</artifactId>
@@ -73,7 +95,7 @@
         <groupId>com.h2database</groupId>
         <artifactId>h2</artifactId>
         <version>1.4.193</version>
-        <scope>runtime</scope> 
+        <scope>runtime</scope>
     </dependency>
 
     <!-- org.hibernate :: hibernate-core :: 5.2.4.Final  -->
