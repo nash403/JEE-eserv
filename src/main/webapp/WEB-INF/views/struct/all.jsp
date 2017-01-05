@@ -40,7 +40,7 @@
 					<td><c:out value="${struct.name}"/></td>
 					<td><c:out value="${struct.region}"/></td>
 					<td><c:out value="${struct.status}"/></td>
-					<td style="text-align: center;"><a class="btn btn-primary" href="/structure-srv/app/struct/edit/${struct.id}">éditer</a> </td>
+					<td style="text-align: center;"><a class="btn btn-primary" href="create/${struct.id}">éditer</a> </td>
 				</tr>
 			</c:forEach>
 			<span>

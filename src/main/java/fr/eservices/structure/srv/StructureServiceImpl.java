@@ -33,6 +33,11 @@ public class StructureServiceImpl implements StructureService {
 	public Structure findStructById(Long id) {
 		return dao.findById(id);
 	}
+
+	@Override
+	public Structure update(Structure structure) {
+		return dao.update(structure);
+	}
 	
 	
 }
