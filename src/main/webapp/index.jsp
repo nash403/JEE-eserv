@@ -19,11 +19,12 @@
 	  <div class="container-fluid">
 	    <div class="navbar-header">
 	      <a class="navbar-brand" href="/structure-srv">Accueil</a>
+        <a class="navbar-brand" href="/structure-srv/app/change-user">Changer d'utilisateur</a>
 	    </div>
 	  </div>
 	</nav>
    <div class="container">
-   
+
    	<h1 style="margin-bottom: 30px;">Gestion des structures</h1>
    	<div>
 	    <a href="/structure-srv/app/struct/all" class="btn btn-primary btn-lg pull-left" style="margin-right: 20px;">Voir toutes les structures</a>

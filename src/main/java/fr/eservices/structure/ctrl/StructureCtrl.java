@@ -17,19 +17,19 @@ import org.springframework.web.servlet.ModelAndView;
 
 import fr.eservices.structure.model.Structure;
 import fr.eservices.structure.srv.StructureServiceImpl;
+import fr.eservices.structure.srv.UserMockService;
 
 @Controller
 public class StructureCtrl {
 
 	@Autowired
 	StructureServiceImpl srv;
-	
 
 	@RequestMapping(method=RequestMethod.GET)
 	public void home(HttpServletResponse resp) throws IOException{
 		resp.sendRedirect("/structure-srv/index.jsp");
 	}
-	
+
 	@RequestMapping(value = "/struct/all")
 	public String list(Model model) {
 		List<Structure> ss = srv.findAll();
@@ -54,30 +54,30 @@ public class StructureCtrl {
 	}
 
 	@RequestMapping(value="/struct/create", method=RequestMethod.GET)
-	public ModelAndView showForm(){		
+	public ModelAndView showForm(){
 			return new ModelAndView("struct/create-edit", "structure", new Structure());
 	}
-	
+
 	@RequestMapping(value="/struct/create/{id}", method=RequestMethod.GET)
-	public ModelAndView showForm(@PathVariable(value="id",required=false) Long id){		
+	public ModelAndView showForm(@PathVariable(value="id",required=false) Long id){
 			return new ModelAndView("struct/create-edit","structure",srv.findStructById(id));
 	}
 
 	@RequestMapping(value="/struct/create", method=RequestMethod.POST)
 	public void createStructure(Model model, @ModelAttribute Structure structure, HttpServletResponse resp){
-		
+
 			srv.create(structure);
 			model.addAttribute("structure", structure);
 			try {
 				resp.sendRedirect("/structure-srv/app/struct/all");
 			} catch (IOException e) {
-				e.printStackTrace();			
-			}		
+				e.printStackTrace();
+			}
 	}
-	
+
 	@RequestMapping(value="/struct/create/{id}", method=RequestMethod.POST)
 	public void createStructure(Model model, @ModelAttribute Structure structure, HttpServletResponse resp,@PathVariable(value="id",required=false) Long id){
-		
+
 		Structure structureFound = srv.findStructById(id);
 		structureFound.setCity(structure.getCity());
 		structureFound.setCountry(structure.getCountry());
@@ -85,7 +85,7 @@ public class StructureCtrl {
 		structureFound.setRegion(structure.getRegion());
 		structureFound.setStatus(structure.getStatus());
 		structureFound.setStreet(structure.getStreet());
-		structureFound.setZipcode(structure.getZipcode());	
+		structureFound.setZipcode(structure.getZipcode());
 		srv.update(structureFound);
 		model.addAttribute("structure",structureFound);
 	try {
@@ -93,6 +93,12 @@ public class StructureCtrl {
 	} catch (IOException e) {
 		e.printStackTrace();
 	}
+	}
+
+	@RequestMapping(value="/change-user")
+	public void updateUser(HttpServletResponse resp) throws IOException {
+		UserMockService.changeUser();
+		resp.sendRedirect("/structure-srv/index.jsp");
 	}
 
 }
