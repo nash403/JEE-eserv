@@ -29,7 +29,7 @@
    
    	<h1 style="margin-bottom: 30px;">Gestion des structures</h1>
    	<div>
-	    <a href="/structure-srv/app/struct/all" class="btn btn-primary btn-lg pull-left" style="margin-right: 20px;">Voir toutes les structure</a>
+	    <a href="/structure-srv/app/struct/all" class="btn btn-primary btn-lg pull-left" style="margin-right: 20px;">Voir toutes les structures</a>
 	    <a href="/structure-srv/app/struct/create" class="btn btn-success btn-lg">Ajouter une nouvelle structure</a>
    	</div>
    </div>
