@@ -31,12 +31,6 @@ public class StructureCtrl {
 		return "index";
 	}
 	
-	@RequestMapping(value = "/create-edit")
-	public String showStructure(Model model) {
-
-		return "struct/create-edit";
-	}
-
 	@RequestMapping(value = "/all")
 	public String list(Model model) {
 		List<Structure> ss = srv.findAll();

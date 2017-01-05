@@ -33,12 +33,12 @@
    	<div class="form-group row">
    		<h2>Édition d'une Structure</h2>
    		<div class="form-group">   		
-   			<form:label path="name">Nom de la structure</form:label>
-   			<form:input class="form-control" path="name" type="text" value="${structToEdit.name != null ? structToEdit.name : ''}" required="required"/>
+   			<form:label path="name">Structure name</form:label>
+   			<form:input class="form-control" path="name" type="text" required="required"/>
    		</div>
    		<div class="form-group">   		
-   			<form:label path="street">Rue</form:label>
-   			<form:input class="form-control" path="street" type="text"/>
+   			<form:label path="street">Street</form:label>
+   			<form:input class="form-control" path="street"  type="text"/>
    		</div>
    		<div class="form-group">   		
    			<form:label path="zipcode">Code Postal (chiffres uniquement)</form:label>
