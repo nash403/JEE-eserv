@@ -1,5 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!-- <h1>hello from Structure</h1>-->
 <!DOCTYPE html>
@@ -28,17 +27,11 @@
 	</nav>
    <div class="container">
    
-   <h1>Gestion des structures</h1></br></br></br>
-   
-   <div class="btn-group">
-     
-    <form action="/structure-srv/app/struct/all">
-    	<button type="submit" class="btn btn-primary">Voir toutes les structure</button>
-	</form>
-	</br>
-	<form action="/structure-srv/app/struct/create">
-    	<button type="submit" class="btn btn-primary">Ajouter une structure</button>
-	</form>	</div>
+   	<h1 style="margin-bottom: 30px;">Gestion des structures</h1>
+   	<div>
+	    <a href="/structure-srv/app/struct/all" class="btn btn-primary btn-lg pull-left" style="margin-right: 20px;">Voir toutes les structure</a>
+	    <a href="/structure-srv/app/struct/create" class="btn btn-success btn-lg">Ajouter une nouvelle structure</a>
+   	</div>
    </div>
   </body>
 </html>

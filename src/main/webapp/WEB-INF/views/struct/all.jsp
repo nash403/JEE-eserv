@@ -1,5 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!-- <h1>hello from Structure</h1>-->
 <!DOCTYPE html>
 <html lang="fr">
   <head>
@@ -24,32 +23,36 @@
 	    </div>
 	  </div>
 	</nav>
-   <div class="container">
-   	<h1>Liste des structures</h1>
-   	<form class="form-inline container" action="/structure-srv/app/struct/filter" method="post" style="margin-bottom:30px;">
-	  <input type="text" name="regionflt" class="form-control" style="min-width:40%;" placeholder="Filtrer par région" required>
-	  <button type="submit" class="btn btn-default">Rechercher</button>
-	  <a href="/structure-srv/app/struct/all" class="btn btn-default">Toutes</a>
+   <div class="container-fluid">
+   	<h1 class="text-center">Liste des structures</h1>
+   	<form action="/structure-srv/app/struct/filter" method="post" style="margin-bottom:30px;">
+	   	<div class="row">   	
+		   	<div class="col-md-10">
+			  <input type="text" name="regionflt" class="form-control" placeholder="Filtrer par région" required>
+		   	</div>
+		   	<div class="col-md-2">
+			  <button type="submit" class="btn btn-default">Rechercher</button>
+			  <a href="/structure-srv/app/struct/all" class="btn btn-info">Toutes</a>
+		   	</div>
+	   	</div>
 	</form>
-	<div class="container">
-		<table class="table table-striped table-hover table-bordered">
-			<tr><th>ID</th><th>Nom</th><th>Région</th><th>Status</th><th>Action</th></tr>
-			<c:forEach items="${structs}" var="struct">
-				<tr>
-					<td><c:out value="${struct.id}"/></td>
-					<td><c:out value="${struct.name}"/></td>
-					<td><c:out value="${struct.region}"/></td>
-					<td><c:out value="${struct.status}"/></td>
-					<td style="text-align: center;"><a class="btn btn-primary" href="create/${struct.id}">éditer</a> </td>
-				</tr>
-			</c:forEach>
-			<span>
-				<c:if test="${empty structs}">
-					Aucune entrée trouvée !
-				</c:if>
-			</span>
-		</table>
-	</div>
+	<table class="table table-striped table-hover table-bordered">
+		<tr><th>ID</th><th>Nom</th><th>Région</th><th>Status</th><th>Action</th></tr>
+		<c:forEach items="${structs}" var="struct">
+			<tr>
+				<td><c:out value="${struct.id}"/></td>
+				<td><c:out value="${struct.name}"/></td>
+				<td><c:out value="${struct.region}"/></td>
+				<td><c:out value="${struct.status}"/></td>
+				<td style="text-align: center;"><a class="btn btn-primary" href="create/${struct.id}">éditer</a> </td>
+			</tr>
+		</c:forEach>
+		<span>
+			<c:if test="${empty structs}">
+				Aucune entrée trouvée !
+			</c:if>
+		</span>
+	</table>
    </div>
    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
