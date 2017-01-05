@@ -19,13 +19,17 @@ import fr.eservices.structure.model.Structure;
 import fr.eservices.structure.srv.StructureServiceImpl;
 
 @Controller
-@RequestMapping(value = "/struct")
 public class StructureCtrl {
 
 	@Autowired
 	StructureServiceImpl srv;
 	
-	@RequestMapping(value = "/all")
+	@RequestMapping(method=RequestMethod.GET)
+	public void home(HttpServletResponse resp) throws IOException{
+		resp.sendRedirect("/structure-srv/index.jsp");
+	}
+	
+	@RequestMapping(value = "/struct/all")
 	public String list(Model model) {
 		List<Structure> ss = srv.findAll();
 		model.addAttribute("structs", ss);
@@ -35,7 +39,7 @@ public class StructureCtrl {
 		return "struct/all";
 	}
 
-	@RequestMapping(value = "/filter")
+	@RequestMapping(value = "/struct/filter")
 	public String listFiltered(Model model, @RequestParam("regionflt") String filter) {
 		String trimed = filter == null ? null : filter.trim();
 		if (trimed != null & trimed.length() > 0) {
@@ -48,17 +52,17 @@ public class StructureCtrl {
 		return "struct/all";
 	}
 
-	@RequestMapping(value="/create", method=RequestMethod.GET)
+	@RequestMapping(value="/struct/create", method=RequestMethod.GET)
 	public ModelAndView showForm(){		
 			return new ModelAndView("struct/create-edit", "structure", new Structure());
 	}
 	
-	@RequestMapping(value="/create/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/struct/create/{id}", method=RequestMethod.GET)
 	public ModelAndView showForm(@PathVariable(value="id",required=false) Long id){		
 			return new ModelAndView("struct/create-edit","structure",srv.findStructById(id));
 	}
 
-	@RequestMapping(value="/create", method=RequestMethod.POST)
+	@RequestMapping(value="/struct/create", method=RequestMethod.POST)
 	public void createStructure(Model model, @ModelAttribute Structure structure, HttpServletResponse resp){
 		
 			srv.create(structure);
@@ -70,7 +74,7 @@ public class StructureCtrl {
 			}		
 	}
 	
-	@RequestMapping(value="/create/{id}", method=RequestMethod.POST)
+	@RequestMapping(value="/struct/create/{id}", method=RequestMethod.POST)
 	public void createStructure(Model model, @ModelAttribute Structure structure, HttpServletResponse resp,@PathVariable(value="id",required=false) Long id){
 		
 		Structure structureFound = srv.findStructById(id);
