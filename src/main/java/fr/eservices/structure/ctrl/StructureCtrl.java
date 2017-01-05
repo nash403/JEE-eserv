@@ -24,12 +24,6 @@ public class StructureCtrl {
 
 	@Autowired
 	StructureServiceImpl srv;
-
-	@RequestMapping(value = "")
-	public String showIndex(Model model) {
-
-		return "index";
-	}
 	
 	@RequestMapping(value = "/all")
 	public String list(Model model){
@@ -50,43 +44,46 @@ public class StructureCtrl {
 		return "struct/all";
 	}
 
-	@RequestMapping(value="/create/{id}", method=RequestMethod.GET)
-	public ModelAndView showForm(@PathVariable(value="id",required=false) Long id){
-		if(id == null){			
+	@RequestMapping(value="/create", method=RequestMethod.GET)
+	public ModelAndView showForm(){		
 			return new ModelAndView("struct/create-edit", "structure", new Structure());
-		}else{
+	}
+	
+	@RequestMapping(value="/create/{id}", method=RequestMethod.GET)
+	public ModelAndView showForm(@PathVariable(value="id",required=false) Long id){		
 			return new ModelAndView("struct/create-edit","structure",srv.findStructById(id));
-		}
 	}
 
-	@RequestMapping(value="/create/{id}", method=RequestMethod.POST)
-	public void createStructure(Model model, @ModelAttribute Structure structure, HttpServletResponse resp,@PathVariable(value="id",required=false) Long id){
-		if(id == null){			
+	@RequestMapping(value="/create", method=RequestMethod.POST)
+	public void createStructure(Model model, @ModelAttribute Structure structure, HttpServletResponse resp){
+		
 			srv.create(structure);
 			model.addAttribute("structure", structure);
 			try {
-				resp.sendRedirect("all");
-			} catch (IOException e) {
-				e.printStackTrace();
-				
-			}
-		}else{
-			Structure structureFound = srv.findStructById(id);
-			structureFound.setCity(structure.getCity());
-			structureFound.setCountry(structure.getCountry());
-			structureFound.setName(structure.getName());
-			structureFound.setRegion(structure.getRegion());
-			structureFound.setStatus(structure.getStatus());
-			structureFound.setStreet(structure.getStreet());
-			structureFound.setZipcode(structure.getZipcode());	
-			srv.update(structureFound);
-			model.addAttribute("structure",structureFound);
-			try {
 				resp.sendRedirect("/structure-srv/app/struct/all");
 			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
+				e.printStackTrace();			
+			}		
+	}
+	
+	@RequestMapping(value="/create/{id}", method=RequestMethod.POST)
+	public void createStructure(Model model, @ModelAttribute Structure structure, HttpServletResponse resp,@PathVariable(value="id",required=false) Long id){
+		
+		Structure structureFound = srv.findStructById(id);
+		structureFound.setCity(structure.getCity());
+		structureFound.setCountry(structure.getCountry());
+		structureFound.setName(structure.getName());
+		structureFound.setRegion(structure.getRegion());
+		structureFound.setStatus(structure.getStatus());
+		structureFound.setStreet(structure.getStreet());
+		structureFound.setZipcode(structure.getZipcode());	
+		srv.update(structureFound);
+		model.addAttribute("structure",structureFound);
+	try {
+		resp.sendRedirect("/structure-srv/app/struct/all");
+	} catch (IOException e) {
+		e.printStackTrace();
+	}
 	}
 
 }
