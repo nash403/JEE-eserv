@@ -14,11 +14,14 @@ eclipse:
 compiling:
 	mvn compile
 
-package:
+package: clean
 	mvn package -Dmaven.test.skip=true
 	
 tomcat: package
 	ln -s $(MY_PWD)/target/structure-srv-1.0-SNAPSHOT.war $(TOMPATH)/structure-srv.war || (rm $(TOMPATH)/structure-srv.war && ln -s $(MY_PWD)/target/structure-srv-1.0-SNAPSHOT.war $(TOMPATH)/structure-srv.war)
+
+install: package
+	mvn install:install-file -Dfile=./target/structure-srv-1.0-SNAPSHOT.jar -DgroupId=fr.eservices.structure -DartifactId=structure-srv -Dversion=1.0-SNAPSHOT -Dpackaging=jar
 
 deploy:
 	mvn deploy
