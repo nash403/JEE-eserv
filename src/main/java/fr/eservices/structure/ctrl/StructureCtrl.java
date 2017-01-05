@@ -60,13 +60,13 @@ public class StructureCtrl {
 		return "struct/all";
 	}
 
-	@RequestMapping(value = "/create", method = RequestMethod.GET)
-	public ModelAndView showForm() {
+	@RequestMapping(value="/create", method=RequestMethod.GET)
+	public ModelAndView showForm(){
 		return new ModelAndView("struct/create-edit", "structure", new Structure());
 	}
 
-	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public void createStructure(Model model, @ModelAttribute Structure structure, HttpServletResponse resp) {
+	@RequestMapping(value="/create", method=RequestMethod.POST)
+	public void createStructure(Model model, @ModelAttribute Structure structure, HttpServletResponse resp){
 		srv.create(structure);
 		model.addAttribute("structure", structure);
 		try {
