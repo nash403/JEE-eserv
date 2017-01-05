@@ -48,16 +48,18 @@ public class StructureDaoImpl implements StructureDao {
 	}
 
 	@Override
+	@Transactional
 	public Structure update(Structure struct) {
-		int updatedStruct = em.createQuery("UPDATE Structure SET name = :name, street = :street, region = :region, city = :city, country = :country, status = :status WHERE id = :id")
+		int updatedStruct = em.createQuery("UPDATE Structure SET name = :name, street = :street, region = :region, city = :city, country = :country, status = :status, zipcode = :zipcode WHERE id = :id")
 		.setParameter("name", struct.getName())
 		.setParameter("street", struct.getStreet())
 		.setParameter("region", struct.getRegion())
 		.setParameter("city", struct.getCity())
+		.setParameter("country", struct.getCountry())
 		.setParameter("status", struct.getStatus())
 		.setParameter("id", struct.getId())
+		.setParameter("zipcode", struct.getZipcode())
 		.executeUpdate();
-
 		return updatedStruct == 1 ? struct : null;
 	}
 

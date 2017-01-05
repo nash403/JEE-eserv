@@ -29,9 +29,10 @@
    <div class="container">
 
    
-   	<form:form method="POST" modelAttribute="structure" action="create">
+   	<form:form method="POST" modelAttribute="structure" action="/structure-srv/app/struct/create/${structure.id}">
    	<div class="form-group row">
    		<h2>Édition d'une Structure</h2>
+   		<form:input hidden="hidden" path="id" value="${structure.id}"/>
    		<div class="form-group">   		
    			<form:label path="name">Structure name</form:label>
    			<form:input class="form-control" path="name" type="text" required="required"/>
@@ -61,7 +62,7 @@
 	   			</c:forEach>
    			</form:select>
    		</div>
-   	<input type="submit" class="btn btn-primary pull-right" value="Ajouter / Modifier"/>
+   	<input type="submit" class="btn btn-primary pull-right" value="Créer / Modifier"/>
    	</div>
    	</form:form>
    </div>
