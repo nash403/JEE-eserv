@@ -12,7 +12,7 @@
   	<nav class="navbar navbar-default">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
-	      <a class="navbar-brand" href="/structure-srv/app/struct">Accueil</a>
+	      <a class="navbar-brand" href="/structure-srv">Accueil</a>
 	    </div>
 	  </div>
 	</nav>
