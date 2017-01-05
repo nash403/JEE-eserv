@@ -34,27 +34,27 @@
    		<h2>Édition d'une Structure</h2>
    		<form:input hidden="hidden" path="id" value="${structure.id}"/>
    		<div class="form-group">   		
-   			<form:label path="name">Nom de la structure</form:label>
-   			<form:input class="form-control" path="name" type="text" required="required"/>
+   			<form:label path="name">Nom de la structure (*)</form:label>
+   			<form:input class="form-control" path="name" type="text" required="required" placeholder="Nom de la structure"/>
    		</div>
    		<div class="form-group">   		
-   			<form:label path="street">Rue</form:label>
-   			<form:input class="form-control" path="street"  type="text"/>
+   			<form:label path="street">Rue (*)</form:label>
+   			<form:input class="form-control" path="street"  type="text" required="required" placeholder="Rue de la structure"/>
    		</div>
    		<div class="form-group">   		
-   			<form:label path="zipcode">Code Postal (chiffres uniquement)</form:label>
-   			<form:input class="form-control" pattern="[0-9]+" type="text" path="zipcode"/>
+   			<form:label path="zipcode">Code Postal (*)</form:label>
+   			<form:input class="form-control" pattern="[0-9]+" type="text" path="zipcode" required="required" placeholder="CP de la structure (chiffres uniquement)"/>
    		</div>
    		<div class="form-group">   		
-   			<form:label path="region">Région</form:label>
-   			<form:input class="form-control" path="region" type="text" required="required"/>
+   			<form:label path="region">Région (*)</form:label>
+   			<form:input class="form-control" path="region" type="text" required="required" placeholder="Region de la structure"/>
    		</div>
    		<div class="form-group">   		
-   			<form:label path="country">Pays</form:label>
-   			<form:input class="form-control" path="country" type="text"/>
+   			<form:label path="country">Pays (*)</form:label>
+   			<form:input class="form-control" path="country" type="text" required="required" placeholder="Pays de la structure"/>
    		</div>
    		<div class="form-group">   		
-   			<form:label path="status">Statut de la structure</form:label>
+   			<form:label path="status">Statut de la structure (*)</form:label>
    			<c:set var="enumValues" value="<%=Structure.Status.values()%>"/>
    			<form:select path="status" class="form-control" name="enumValue">
 	   			<c:forEach items="${enumValues}" var="enumValue">
